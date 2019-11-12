@@ -3,22 +3,19 @@
 
 int main (void)
 {
-	char *pc;
+	char buffer[8];
+	double *pd;
 	int *pi;
-	double *pd;;
 	
-	pc = (char*)10000;
-	pi = (int*)10000;
-	pd = (double*)10000;
+	pd=(double*)buffer;
+	*pd=3.14;
+	printf("%f\n", *(double*)buffer);
 	
-	printf(" before : pc = %d, pi = %d, pd =%d\n", pc, pi, pd);
-	
-	pc++;
-	pd++;
-	pi++;
-	
-	printf(" after : pc =%d, pi = %d, pd = %d\n", pc, pi, pd);
+	pi=(int*)buffer;
+	*pi=123;
+	*(pi+1)=456;
+	printf("%d %d\n", *(int*)buffer, *((int*)buffer+1));
 	
 	return 0;
-
+	
 }
